@@ -27,6 +27,9 @@ limitation of the fit.
 \left(t*\cos(0.523599)-e^{0.030000\left|t\right|}\cdot\sin(0.3t)\sin(0.523599)+55.000000,42+t*\sin(0.523599)+e^{0.030000\left|t\right|}\cdot\sin(0.3t)\cos(0.523599)\right)
 ```
 
+<img width="821" height="672" alt="image" src="https://github.com/user-attachments/assets/b993d341-0639-4cf1-9307-94ddef719287" />
+
+
 ## Approach, in brief
 
 The model is a rotation of the 1-D curve `t ↦ (t, s(t))`, where
