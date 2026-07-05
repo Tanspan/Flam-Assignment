@@ -52,36 +52,3 @@ For the equations behind each step, see [MATH_APPROACH.md](MATH_APPROACH.md).
   output (rather than the solver guessing it numerically), which makes it
   both faster and more precise.
 
-## 6. Don't just trust the numbers — check them
-
-Before accepting the final answer, I checked three things:
-
-- **Does it look like a "real" answer, or a random decimal?**
-  The fit landed on 30°, 0.03, and 55 — clean numbers, not something like
-  29.87° or 0.0287. That's a good sign.
-- **Is it stable?**
-  Re-running the polish step starting from its own answer gave back the
-  exact same answer. If it had drifted, that would mean it wasn't really
-  finished converging.
-- **Does it reproduce the original data?**
-  Plugging the clean numbers (30°, 0.03, 55) straight back into the
-  original formula reproduces the CSV almost exactly — the tiny leftover
-  difference matches the rounding already present in the CSV file itself.
-  So the "error" left over isn't really error — it's just the data's own
-  rounding.
-
-## 7. Prove the method works — not just this one file
-
-- It's not enough that the method worked on this one dataset — that could
-  be luck.
-- So `test_solve.py` also generates its own fake data using several
-  different, made-up `(θ, M, X)` values, and checks that the same pipeline
-  finds those back too.
-- Only after that passes, plus a direct check on the real assignment data,
-  did I trust the answer.
-
-## In one line
-
-**Spot the rotation → undo it algebraically to remove almost all the
-unknowns → search globally over the 2 that remain → polish everything
-together → verify it three different ways before trusting it.**
