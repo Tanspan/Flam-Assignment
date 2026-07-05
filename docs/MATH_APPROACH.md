@@ -126,19 +126,7 @@ M = 0.030000
 X = 55.0000
 ```
 
-with mean L1 residual per point ≈ 2.7 × 10⁻⁶. Three independent checks
-support this being the true answer, not just "a good fit":
-
-1. **Clean numbers.** The fit lands on round values well inside its own
-   residual noise, not on arbitrary decimals like 29.87° or 0.0287.
-2. **Stable re-solve.** Warm-starting `least_squares` from the converged
-   point reproduces an identical result — evidence of genuine
-   convergence rather than a solver stopping early.
-3. **Round-trip check.** Plugging the exact values `(π/6, 0.03, 55)`
-   directly back into the model reproduces the CSV to within ~2×10⁻⁵
-   absolute error — consistent with the input file being rounded to 6
-   decimal digits. In other words, the residual we see is the data's own
-   rounding, not error in the algorithm.
+with mean L1 residual per point ≈ 2.7 × 10⁻⁶.
 
 ## References
 
